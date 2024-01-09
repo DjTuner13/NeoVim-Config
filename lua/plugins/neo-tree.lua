@@ -10,5 +10,9 @@ return	{
   config = function()
 
     vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*.md",
+      command = "lcd %:p:h"
+    })
   end
 }
