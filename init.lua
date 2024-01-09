@@ -19,5 +19,3 @@ require("vim-options")
 require("lazy").setup("plugins")
 
 vim.o.conceallevel = 1
-
-

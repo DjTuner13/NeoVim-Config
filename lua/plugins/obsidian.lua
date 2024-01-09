@@ -13,11 +13,11 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/dev/Obsidian_Vault/personal",
+          path = "~/dev/obsidian_second_brain/personal",
         },
         {
           name = "work",
-          path = "~/dev/Obsidian_Vault/work",
+          path = "~/dev/obsidian_second_brain/work",
         },
       },
 
