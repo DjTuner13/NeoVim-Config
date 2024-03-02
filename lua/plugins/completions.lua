@@ -2,13 +2,22 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp"
   },
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
+ {
+        "L3MON4D3/LuaSnip",
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+        },
+        config = function()
+            local ls = require("luasnip")
+            ls.setup({
+                load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
+                    markdown = {"lua", "json"},
+                    html = {"javascript"}
+                })
+            })
+        end,
     },
-  },
   {
     "hrsh7th/nvim-cmp",
     config = function()

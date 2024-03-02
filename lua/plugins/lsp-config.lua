@@ -36,6 +36,13 @@ return {
       lspconfig.phpactor.setup({
         capabilities = capabilities
       })
+      lspconfig.jdtls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.lemminx.setup({
+        capabilities = capabilities
+      })
+
       --lspconfig.intelephense.setup({
         --capabilities = capabilities
       --})
