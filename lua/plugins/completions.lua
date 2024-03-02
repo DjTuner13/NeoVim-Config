@@ -2,6 +2,7 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp"
   },
+  { "rafamadriz/friendly-snippets" },
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -40,7 +41,8 @@ return {
             option = {
             max_count = {}, -- not ready yet
             enable_on = {
-              "html"
+              "html",
+              "php"
             }, -- set the file types you want the plugin to work on
             file_extensions = { "css", "sass", "less" }, -- set the local filetypes from which you want to derive classes
             style_sheets = {

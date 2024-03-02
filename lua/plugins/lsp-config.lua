@@ -28,17 +28,26 @@ return {
         capabilities = capabilities
       })
       lspconfig.html.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        filetypes = { "html", "php" },
+        {
+          configurationSection = { "html", "css", "javascript" },
+          embeddedLanguages = {
+            css = true,
+            javascript = true,
+          },
+          provideFormatter = true
+        }
       })
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-      lspconfig.phpactor.setup({
-        capabilities = capabilities
-      })
-      --lspconfig.intelephense.setup({
+      --lspconfig.phpactor.setup({
         --capabilities = capabilities
       --})
+      lspconfig.intelephense.setup({
+        capabilities = capabilities
+      })
       lspconfig.cssls.setup({
         capabilities = capabilities,
         settings = {
