@@ -21,4 +21,6 @@ vim.api.nvim_set_keymap('n', '<Space>u', '<C-u>', { noremap = true })
 -- Map the leader key followed by ww to cycle through windows
 vim.api.nvim_set_keymap('n', '<Leader>ww', '<C-W>w', { noremap = true })
 
-
+--vim.cmd([[
+--  autocmd FileType php setlocal filetype=php.html
+--]])
