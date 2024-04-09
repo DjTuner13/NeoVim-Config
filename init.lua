@@ -19,3 +19,8 @@ require("vim-options")
 require("lazy").setup("plugins")
 --require("html-css"):setup()
 vim.o.conceallevel = 1
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.php",
+    command = "set filetype=php.html",
+})
+
