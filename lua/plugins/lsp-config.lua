@@ -39,6 +39,9 @@ return {
           provideFormatter = true
         }
       })
+      lspconfig.pylsp.setup({
+        capabilities = capabilities
+      })
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
