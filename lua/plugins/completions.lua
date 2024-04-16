@@ -11,14 +11,28 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 		},
+		build = "make install_jsregexp",
+        config = function()
+        local ls = require("luasnip")
+
+        vim.keymap.set("i", "<C-K>", function() ls.expand() end, {silent = false, desc = "Expand snippet"})
+        vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump(1) end, {silent = true, desc = "Jump forward in snippet"})
+        vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true, desc = "Jump backward in snippet"})
+        vim.keymap.set({"i", "s"}, "<C-E>", function()
+            if ls.choice_active() then
+                ls.change_choice(1)
+            end
+        end, {silent = true, desc = "Next snippet choice"})
+    end
 	},
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
+			local luasnip = require("luasnip")
 			local cmp = require("cmp")
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
-
+			luasnip.filetype_extend("php", { "html" })
 			vim.opt.completeopt = "menu,menuone,noselect"
 			cmp.setup({
 				snippet = {
@@ -69,6 +83,8 @@ return {
 				},
 			})
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+
+
 		end,
 	},
 }
