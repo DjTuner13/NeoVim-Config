@@ -49,7 +49,8 @@ return {
         --capabilities = capabilities
       --})
       lspconfig.intelephense.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        filetypes = { "php.html", "php" };
       })
       lspconfig.cssls.setup({
         capabilities = capabilities,
@@ -78,6 +79,8 @@ return {
     },
     config = function()
             require("html-css"):setup()
-    end
+    end,
+    filetypes = { "php.html", "php", "html" };
+
   },
 }
